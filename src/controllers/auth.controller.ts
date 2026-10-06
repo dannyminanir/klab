@@ -21,11 +21,11 @@ export const register = async (req: Request, res: Response) => {
   }
 
   // role is never taken from the body, so nobody can register as admin
-  const user = await User.create({
-    name,
-    email,
-    password: await bcrypt.hash(password, 10),
-  });
+const user = await User.create({
+  name,
+  email,
+  password: await bcrypt.hash(password, 10),
+});
 
   await sendWelcomeEmail(email, name);
 
